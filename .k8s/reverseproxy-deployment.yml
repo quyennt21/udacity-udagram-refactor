@@ -18,8 +18,8 @@ spec:
         - name: reverseproxy
           image: 'quyennt201/udagram-reverseproxy:v1'
           imagePullPolicy: Always
-          resource:
-            request:
+          resources:
+            requests:
               cpu: 250m
             limits:
               cpu: 500m

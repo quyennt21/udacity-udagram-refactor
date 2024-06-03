@@ -18,16 +18,18 @@ spec:
         - name: api-user
           image: 'quyennt201/udagram-api-user:v1'
           imagePullPolicy: Always
-          resource:
-            request:
+          resources:
+            requests:
               cpu: 250m
             limits:
               cpu: 500m
           envFrom:
             - secretRef:
                 name: env-secret
+            - secretRef:
+                name: aws-secret
             - configMapRef:
-                name: config-secret
+                name: env-config
           ports:
             - containerPort: 8080
       restartPolicy: Always
